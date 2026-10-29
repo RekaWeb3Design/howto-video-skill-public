@@ -170,7 +170,7 @@ File name: `<Brand>_<Feature>_howto.mp4` (no accents, underscores).
 
 ## Step 9 — Check (before showing)
 
-Grab 6–9 frames at key moments into one contact sheet (`ffmpeg -ss T -frames:v 1`, then `hstack`/`vstack`) and **look at it**: captions not covering titles or highlights, highlights on the right element, no real data, readable and correct text, brand look applied, highlight timed to its sentence. Fix before delivering. Never report a check you did not do.
+Grab 6–9 frames at key moments into one contact sheet (`ffmpeg -ss T -frames:v 1`, then `hstack`/`vstack`) and **look at it**: captions not covering titles or highlights, highlights on the right element, no real data, readable and correct text, brand look applied, logo/credit placed as briefed and not covering anything, highlight timed to its sentence. Fix before delivering. Never report a check you did not do.
 
 ## Step 10 — Deliver (gate 3)
 

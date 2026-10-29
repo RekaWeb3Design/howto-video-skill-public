@@ -16,7 +16,8 @@ metadata:
   Copyright (c) 2026 Víg Réka / The WOW Studio
   Licensed under CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/
   Non-commercial use only. Do not sell this skill or bundle it into paid products,
-  courses or services without written permission from the author.
+  courses or services, and do not charge anyone for videos made with it,
+  without written permission from the author. Free videos for clients are fine.
   Keep this notice and the attribution when sharing or modifying.
   Commercial licensing: hello@rekavig.com
 -->

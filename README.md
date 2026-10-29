@@ -34,7 +34,9 @@ Add your own brand/client setups in the **Profiles** section of `SKILL.md` — k
 
 - ✅ Use it, share it, adapt it — with credit to *Víg Réka / The WOW Studio*
 - ✅ Share modified versions under the same licence
+- ✅ Make videos for yourself, your team, or your clients — free of charge
 - ❌ No selling, reselling, or bundling into paid products, courses or skill packs
+- ❌ No charging clients or customers for videos made with this skill
 
 Commercial licensing: hello@rekavig.com
 
@@ -42,4 +44,4 @@ Commercial licensing: hello@rekavig.com
 
 ### Magyarul röviden
 
-Claude skill, amely néhány kérdés után narrált, lépésről lépésre haladó útmutató videót készít bármilyen márkához, webapphoz vagy eszközhöz. Szabadon használható és továbbadható nem kereskedelmi célra, a szerző (Víg Réka / The WOW Studio) feltüntetésével. Eladni, fizetős termékbe vagy kurzusba csomagolni engedély nélkül nem szabad. Kereskedelmi licenc: hello@rekavig.com
+Claude skill, amely néhány kérdés után narrált, lépésről lépésre haladó útmutató videót készít bármilyen márkához, webapphoz vagy eszközhöz. Szabadon használható és továbbadható nem kereskedelmi célra, a szerző (Víg Réka / The WOW Studio) feltüntetésével. Ügyfeleknek ingyen készíthetsz vele videót, de a vele készült videókért pénzt kérni, illetve a skillt eladni vagy fizetős termékbe, kurzusba csomagolni engedély nélkül nem szabad. Kereskedelmi licenc: hello@rekavig.com

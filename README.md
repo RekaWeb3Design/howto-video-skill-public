@@ -8,7 +8,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 ## What it does
 
 1. On first run, asks which voice to use (your own cloned ElevenLabs voice, a stock voice, or captions only) — it never uses someone else's voice ID.
-2. Asks a few questions (brand, task, audience, tone, format) and shows a brief for approval.
+2. Asks a few questions and shows a brief for approval: if it finds branding in your project (colours, fonts, logo), it asks whether to use it or something else; it also asks whether to show a logo or a name credit, and where (corner, watermark, or title/end card only).
 3. Gets the visuals: for web platforms it can open them in your Chrome via Claude in Chrome and take the screenshots itself (navigation only — it never saves, submits or signs in); otherwise it uses your screenshots or rebuilds the UI from code.
 4. Writes a scene-by-scene script and waits for approval — no credits are spent before this.
 5. Generates the voiceover (ElevenLabs) or falls back to captions only.

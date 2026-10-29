@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 <!--
@@ -53,14 +53,16 @@ Then suggest saving the choice in the Profiles section of their own copy (voice 
 
 ## Step 2 — Questions (one round)
 
-Ask only what Step 1 did not answer. Max 6 questions, multiple choice where possible (use a question tool if available, max 4 per call; otherwise plain text):
+Ask only what Step 1 did not answer. Max 7 questions, multiple choice where possible (use a question tool if available, max 4 per call; otherwise plain text):
 
-1. **Brand** — which brand is it for? Brand look (colours/fonts/logo from a file, site or design system) or neutral?
+1. **Brand look** — if Step 1 found branding (a Profile, design system, brand files, the repo's theme or the brand's site), show what you found (brand name, colours with hex codes, fonts, logo file) and ask: *use this* / *use a different branding* (site link, file, or colours + fonts) / *neutral*. If nothing was found: which brand is it for, and where should its look come from (site, file, design system) — or neutral?
 2. **Topic + scope** — which tool/feature, and exactly which task from start to finish? Full flow (default) or one short task (~40 s)?
 3. **Audience + goal** — internal team / one named person / client / public; what should they be able to do afterwards?
 4. **Tone + address** — calm-matter-of-fact (default) / friendly / formal; informal or formal address (e.g. tegező / magázó in Hungarian); one person or a group?
 5. **Voice + language** — which voice (the user's own cloned voice, a stock voice, or captions only); which narration language?
 6. **Format + destination** — 16:9 internal guide (default) / 9:16 social / embedded on a site or in an app; target length? If an email goes out: to whom, in which thread (if unclear, search the mailbox for the relevant thread and propose it)?
+
+7. **Logo / credit on the video** — none (default) / the brand's logo / the creator's own logo (e.g. a studio logo) / a text credit (e.g. "Made by <name>") / another logo. Placement: small in a corner (which one; default bottom-right) / semi-transparent watermark / only on the title and end cards. Use only a logo file the user supplies or one found in their project files; never download a logo from the web. If no file is at hand, ask for an SVG or transparent PNG. Suggest saving the choice (file + placement) in a Profile so later videos reuse it.
 
 If relevant, also: **closing line** (who to contact with questions).
 
@@ -76,7 +78,8 @@ Show one brief table, defaults filled in, and wait for approval:
 
 | Setting | Default |
 |---|---|
-| Brand look | From project context; else neutral (white cards, system sans, one accent colour) |
+| Brand look | As confirmed in Step 2 (detected branding, a different one, or neutral: white cards, system sans, one accent colour) |
+| Logo / credit | None unless the brief says so. Corner: bottom-right, ~6% of frame width, 24 px margin, ~85% opacity. Watermark: ~15% opacity. Never over captions or highlights |
 | Voice | The voice from the brief or a Profile. Never assume a voice ID: list the available voices and say which one you use and with which model |
 | Narration | Language from the brief; calm, matter-of-fact; address per brief |
 | Captions | On, top of the frame (never over the highlighted UI) |
@@ -131,7 +134,8 @@ House style:
 - **Captions** at the top (below the highlight only if it is at the top); max 2 lines.
 - **Explainer mini-diagram** when a concept needs it.
 - **Result screen**: statuses highlighted row by row as the voice mentions them (green / yellow / red).
-- **End card:** privacy line if relevant + closing line + brand logo if available.
+- **End card:** privacy line if relevant + closing line + the logo or credit chosen in the brief.
+- **Logo / credit** as briefed: SVG or transparent PNG embedded (base64) in `scene.html`, same position for the whole video. Keep it out of the caption area; if a highlight or UI element would be covered, fade it out for that scene. A text credit uses the brand font, small and low-contrast.
 - Nothing overlaps unintentionally; all on-screen text must be correct and make sense in its language.
 
 ## Step 8 — Render
@@ -203,6 +207,7 @@ Add one block per brand or client to override the defaults. Keep client-confiden
 - Voice: `<voice name>` (look up the ID in the voice tool; don't hard-code it in shared copies).
 - Narration: language, address form, greeting; closing line and end card text.
 - Delivery: MP4 → unlisted YouTube on `<channel>` → embed via `<existing help-video component>` → email draft in `<thread>`.
+- Logo / credit: `<logo file>` (SVG or transparent PNG), placement (corner / watermark / title + end card only).
 - File name `<Brand>_<Feature>_howto.mp4`.
 
 ## Rules

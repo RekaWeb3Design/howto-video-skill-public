@@ -17,7 +17,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 
 - Claude with skills and code execution (Claude app or Claude Code)
 - `node`, `ffmpeg`, Playwright Chromium (the skill installs Playwright if missing)
-- Optional: ElevenLabs connector (voiceover), a browser tool (YouTube upload), an email connector (drafts)
+- Optional: ElevenLabs connector (voiceover — on first run the skill asks which voice to use), Claude in Chrome (captures screenshots of web platforms by itself and uploads to YouTube), an email connector (drafts)
 
 ## Install
 

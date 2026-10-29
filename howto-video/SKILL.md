@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 <!--
@@ -39,11 +39,17 @@ Short, clear tutorial videos for any brand, client or team. Brand-agnostic by de
 
 ## Step 0 — Capability check (silent)
 
-Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), a browser tool for uploads, an email tool for drafts. Offer only what works; say once what is missing. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s). Click/whoosh SFX available on request.
+Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), **Claude in Chrome** (or another browser tool) for capturing screenshots and uploads, an email tool for drafts. Offer only what works; say once what is missing. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s). Click/whoosh SFX available on request.
 
 ## Step 1 — Context (silent)
 
 Look through the current project/chat and memory for: brand name, colours, fonts, logo, design system, repo, earlier videos, recipients, a matching Profile, the user's preferred voice. Note what you found; show it as assumptions in the brief, don't ask it again.
+
+**Voice setup (first run).** If no voice is set in memory, the chat or a Profile, ask this once, before anything else is generated:
+- *Your own cloned voice* — which ElevenLabs voice name? Look it up with the voice tool and confirm the match; never guess or reuse an ID from an example.
+- *A stock voice* — list a few fitting voices from the voice tool and let the user pick.
+- *Captions only* — no voiceover, no credits.
+Then suggest saving the choice in the Profiles section of their own copy (voice name, language, address form), so later runs don't ask again.
 
 ## Step 2 — Questions (one round)
 
@@ -56,7 +62,13 @@ Ask only what Step 1 did not answer. Max 6 questions, multiple choice where poss
 5. **Voice + language** — which voice (the user's own cloned voice, a stock voice, or captions only); which narration language?
 6. **Format + destination** — 16:9 internal guide (default) / 9:16 social / embedded on a site or in an app; target length? If an email goes out: to whom, in which thread (if unclear, search the mailbox for the relevant thread and propose it)?
 
-If relevant, also: **visual mode** (rebuilt UI with fictional data / screenshots / footage the user supplies) and **closing line** (who to contact with questions).
+If relevant, also: **closing line** (who to contact with questions).
+
+**Visual source** — ask this whenever the subject is a web app or any platform reachable in a browser and its code is not in the session:
+- *Claude in Chrome* (recommended if available) — "Can I open <platform> in your Chrome, where you're signed in, and take the screenshots myself?" Prefer a demo/test account or store; if only a live account exists, warn that real data will appear and will be covered before use.
+- *You send screenshots* — one per step, same window size, in order.
+- *Rebuilt UI* — only if the code is available or the UI is simple enough to rebuild from screenshots.
+If Claude in Chrome is not installed, say once that installing it lets the skill capture screenshots by itself, then continue with the user's screenshots. Do not use screenshots found on the web: they are often outdated, may show other people's data, and may be copyrighted.
 
 ## Step 3 — Brief (gate 1)
 
@@ -71,7 +83,7 @@ Show one brief table, defaults filled in, and wait for approval:
 | Music / SFX | None (music only generated or user-supplied, ~−22 dB under speech) |
 | Format | 16:9, 1280×720, 25 fps (9:16 = 720×1280, 1:1 = 1080×1080 on request) |
 | Length | 60–100 s, full flow, about 6 steps |
-| Visual mode | Rebuilt UI with fictional data for apps whose code is available; screenshot mode for third-party tools (e.g. Google Analytics, Shopify admin) |
+| Visual mode | Rebuilt UI with fictional data for apps whose code is available; screenshot mode for browser platforms (e.g. Google Analytics, Shopify admin): captured with Claude in Chrome if allowed, else the user's own screenshots |
 | Delivery | MP4 (+ optional `.srt`); upload/embed/email only if the brief says so |
 
 If a Profile matches, apply its overrides and say so.
@@ -81,6 +93,13 @@ If a Profile matches, apply its overrides and say so.
 **Rebuilt UI (code available):** read the real page in the repo to copy exact labels, button texts, field order, toasts and states, e.g. `grep -nE "CardTitle|Label|label=|placeholder=|Button|toast\." src/pages/<Page>.tsx`. If the repo is not in the session, attach and clone it read-only. Never copy real data from a DB or files; delete real sample files from the workspace once you have the labels.
 
 **Screenshot mode:** one screenshot per step, same width (1280–1440 px). Cover personal data before zooming. Do not submit forms or change settings to get a nicer screen.
+
+**Capturing with Claude in Chrome (only with the user's yes from Step 2):**
+- Open a new tab; don't touch the user's other tabs. Set the window to the briefed width.
+- Navigate and click only to *reach* each screen (menus, tabs, opening a dialog). Never save, submit, publish, delete, buy, send or change settings; stop before any such button and capture the screen as it is.
+- Never type passwords or sign in on the user's behalf; if a sign-in is needed, ask the user to do it.
+- One screenshot per script step; list what each one shows. Cover names, emails, amounts, order numbers and avatars before use — or rebuild that part with fictional data.
+- If a step can only be shown by doing a real action, ask the user to do it on a test record or send that screenshot themselves.
 
 **Brand look:** take colours/fonts/logo from the brand source the brief names. Only fonts loadable locally or from Google Fonts; if the brand font isn't available, pick the closest and say so.
 

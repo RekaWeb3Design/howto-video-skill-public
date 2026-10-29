@@ -88,7 +88,7 @@ Show one brief table, defaults filled in, and wait for approval:
 | Visual mode | Rebuilt UI with fictional data for apps whose code is available; screenshot mode for browser platforms (e.g. Google Analytics, Shopify admin): captured with Claude in Chrome if allowed, else the user's own screenshots |
 | Delivery | MP4 (+ optional `.srt`); upload/embed/email only if the brief says so |
 
-If a Profile matches, apply its overrides and say so.
+Apply a Profile only when the video is explicitly about that brand or app (named in the request, or the session is in that project or repo); then apply its overrides and say so. Otherwise ignore all Profiles: never carry a Profile's colours, fonts, highlight colour, greeting, closing line, channel or delivery steps over to another project. If unsure whether a Profile applies, ask.
 
 ## Step 4 — Source material
 

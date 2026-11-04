@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.2.0
+  version: 1.2.1
 ---
 
 <!--
@@ -39,7 +39,7 @@ Short, clear tutorial videos for any brand, client or team. Brand-agnostic by de
 
 ## Step 0 — Capability check (silent)
 
-Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), **Claude in Chrome** (or another browser tool) for capturing screenshots and uploads, an email tool for drafts. Offer only what works; say once what is missing. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s). Click/whoosh SFX available on request.
+Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), **Claude in Chrome** (or another browser tool) for capturing screenshots and uploads, an email tool for drafts. Offer only what works; say once what is missing. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s; at least 5 s for a scene with zoom, highlight or cursor, so the motion has time to land). Click/whoosh SFX available on request.
 
 ## Step 1 — Context (silent)
 
@@ -81,12 +81,12 @@ Show one brief table, defaults filled in, and wait for approval:
 | Logo / credit | None unless the brief says so. Corner: bottom-right, ~6% of frame width, 24 px margin, ~85% opacity. Watermark: ~15% opacity. Never over captions or highlights |
 | Voice | The voice from the brief or a Profile. Never assume a voice ID: list the available voices and say which one you use and with which model |
 | Narration | Language from the brief; calm, matter-of-fact; address per brief |
-| Captions | On, top of the frame (never over the highlighted UI) |
+| Captions | On, bottom of the frame in a caption band; moved to the top only for a scene whose highlight sits in the lower third. Always also delivered as an `.srt` file |
 | Music / SFX | None (music only generated or user-supplied, ~−22 dB under speech) |
 | Format | 16:9, 1280×720, 25 fps (9:16 = 720×1280, 1:1 = 1080×1080 on request) |
 | Length | 60–100 s, full flow, about 6 steps |
 | Visual mode | Rebuilt UI with fictional data for apps whose code is available; screenshot mode for browser platforms (e.g. Google Analytics, Shopify admin): captured with Claude in Chrome if allowed, else the user's own screenshots |
-| Delivery | MP4 (+ optional `.srt`); upload/embed/email only if the brief says so |
+| Delivery | MP4 with sound (unless captions only) + `.srt` transcript; upload/embed/email only if the brief says so |
 
 Apply a Profile only when the video is explicitly about that brand or app (named in the request, or the session is in that project or repo); then apply its overrides and say so. Otherwise ignore all Profiles: never carry a Profile's colours, fonts, highlight colour, greeting, closing line, channel or delivery steps over to another project. If unsure whether a Profile applies, ask.
 
@@ -97,7 +97,9 @@ Apply a Profile only when the video is explicitly about that brand or app (named
 **Screenshot mode:** one screenshot per step, same width (1280–1440 px). Cover personal data before zooming. Do not submit forms or change settings to get a nicer screen.
 
 **Capturing with Claude in Chrome (only with the user's yes from Step 2):**
-- Open a new tab; don't touch the user's other tabs. Set the window to the briefed width.
+- Open a new tab; don't touch the user's other tabs. Resize the window to the briefed width before the first shot: screenshots come out at the current window size, not the briefed one.
+- Take each screenshot with the browser tool's save-to-disk option (e.g. `save_to_disk: true`), so the image lands as a file in your workspace; note the returned path and copy it into the project folder. Don't combine it with a reduced `scale`: the saved file is scaled too. A screenshot you only looked at cannot be used as a frame.
+- Before each shot, move the mouse pointer to an empty area and wait ~3 s: the real pointer and the tool's click-ripple circles are captured in the image otherwise. The video draws its own cursor.
 - Navigate and click only to *reach* each screen (menus, tabs, opening a dialog). Never save, submit, publish, delete, buy, send or change settings; stop before any such button and capture the screen as it is.
 - Never type passwords or sign in on the user's behalf; if a sign-in is needed, ask the user to do it.
 - One screenshot per script step; list what each one shows. Cover names, emails, amounts, order numbers and avatars before use — or rebuild that part with fictional data.
@@ -130,7 +132,7 @@ House style:
 - **UI** rebuilt in the app's own look (fonts, colours, card style), or the step's screenshot with zoom/pan.
 - **Highlight** (outline + dimmed backdrop) on the active element, fading in ~0.3 s into the scene; brand accent colour, orange if none.
 - **Files "dropping in"** to upload fields, **cursor** moving to buttons with a click ripple, values changing (e.g. a dropdown from May → June).
-- **Captions** at the top (below the highlight only if it is at the top); max 2 lines.
+- **Captions** at the bottom, in a solid caption band below the UI (never on top of it); for a scene whose highlight is in the lower third, move the band to the top for that scene only. Max 2 lines.
 - **Explainer mini-diagram** when a concept needs it.
 - **Result screen**: statuses highlighted row by row as the voice mentions them (green / yellow / red).
 - **End card:** privacy line if relevant + closing line + the logo or credit chosen in the brief.
@@ -168,13 +170,15 @@ ffmpeg -hide_banner -loglevel error -y -framerate 25 -i frames/f%05d.jpg -i voic
 ```
 File name: `<Brand>_<Feature>_howto.mp4` (no accents, underscores).
 
+Write the transcript as `<Brand>_<Feature>_howto.srt` from the same scene timings the captions use (one cue per caption, `HH:MM:SS,mmm` times). It doubles as the subtitle file for YouTube and social uploads.
+
 ## Step 9 — Check (before showing)
 
-Grab 6–9 frames at key moments into one contact sheet (`ffmpeg -ss T -frames:v 1`, then `hstack`/`vstack`) and **look at it**: captions not covering titles or highlights, highlights on the right element, no real data, readable and correct text, brand look applied, logo/credit placed as briefed and not covering anything, highlight timed to its sentence. Fix before delivering. Never report a check you did not do.
+Grab 6–9 frames at key moments into one contact sheet (`ffmpeg -ss T -frames:v 1`, then `hstack`/`vstack`) and **look at it**: captions not covering titles or highlights, highlights on the right element and not cutting through text, no stray real mouse pointer or click circles baked into screenshots, the video has an audio track (unless captions only), the `.srt` exists and matches the captions, no real data, readable and correct text, brand look applied, logo/credit placed as briefed and not covering anything, highlight timed to its sentence. Fix before delivering. Never report a check you did not do.
 
 ## Step 10 — Deliver (gate 3)
 
-Send the MP4 so it renders inline. Short list: what each part shows, "all data is fictional", any known small issue (offer to fix), take B exists. Ask for feedback; on revisions change only what was asked, re-render, re-check.
+Send the MP4 (with sound) so it renders inline, plus the `.srt`. Short list: what each part shows, "all data is fictional", any known small issue (offer to fix), take B exists. Ask for feedback; on revisions change only what was asked, re-render, re-check.
 
 ## Step 11 — Distribution (gate 4, only what the brief asked for)
 

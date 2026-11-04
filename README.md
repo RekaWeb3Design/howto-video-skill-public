@@ -13,7 +13,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 4. Writes a scene-by-scene script and waits for approval — no credits are spent before this.
 5. Generates the voiceover (ElevenLabs) or falls back to captions only.
 6. Uses **fictional data only** (real data is covered), animates highlights, cursor and captions, and renders the video with Playwright + ffmpeg.
-7. Checks key frames before delivery, then optionally uploads it as an unlisted YouTube video, writes an embed prompt, or drafts an email.
+7. Checks key frames before delivery and hands over the MP4 with an `.srt` transcript, then optionally uploads it as an unlisted YouTube video, writes an embed prompt, or drafts an email.
 
 ## Requirements
 

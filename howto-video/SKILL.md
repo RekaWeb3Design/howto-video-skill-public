@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.2.1
+  version: 1.3.0
 ---
 
 <!--
@@ -53,7 +53,7 @@ Then suggest saving the choice in the Profiles section of their own copy (voice 
 
 ## Step 2 — Questions (one round)
 
-Ask only what Step 1 did not answer. Max 7 questions, multiple choice where possible (use a question tool if available, max 4 per call; otherwise plain text):
+Ask only what Step 1 did not answer. Max 8 questions, multiple choice where possible (use a question tool if available, max 4 per call; otherwise plain text):
 
 1. **Brand look** — if Step 1 found branding (a Profile, design system, brand files, the repo's theme or the brand's site), show what you found (brand name, colours with hex codes, fonts, logo file) and ask: *use this* / *use a different branding* (site link, file, or colours + fonts) / *neutral*. If nothing was found: which brand is it for, and where should its look come from (site, file, design system) — or neutral?
 2. **Topic + scope** — which tool/feature, and exactly which task from start to finish? Full flow (default) or one short task (~40 s)?
@@ -63,7 +63,16 @@ Ask only what Step 1 did not answer. Max 7 questions, multiple choice where poss
 6. **Format + destination** — 16:9 internal guide (default) / 9:16 social / embedded on a site or in an app; target length? If an email goes out: to whom, in which thread (if unclear, search the mailbox for the relevant thread and propose it)?
 7. **Logo / credit on the video** — none (default) / the brand's logo / the creator's own logo (e.g. a studio logo) / a text credit (e.g. "Made by <name>") / another logo. Placement: small in a corner (which one; default bottom-right) / semi-transparent watermark / only on the title and end cards. Use only a logo file the user supplies or one found in their project files; never download a logo from the web. If no file is at hand, ask for an SVG or transparent PNG. Suggest saving the choice (file + placement) in a Profile so later videos reuse it.
 
+8. **Caption style** — show the caption preview first (below), then ask: *1 Clean band* / *2 Pill* / *3 Lower third* / *4 Bold social*. Default: 1 for 16:9, 4 for 9:16. Suggest saving the choice in a Profile.
+
 If relevant, also: **closing line** (who to contact with questions).
+
+**Caption preview (before asking question 8, no credits).** Render one still frame per style on the same background (the first captured screenshot or rebuilt screen, in the brand colours, or a neutral placeholder if none exists yet) with the same sample caption, put the four into one 2×2 image (`hstack`/`vstack`), label each corner with its number and name, look at it, then show it. Styles (accent = brand accent colour):
+1. **Clean band** — solid band under the UI (~16% of frame height), brand body font, medium weight, centred, max 2 lines, thin top rule.
+2. **Pill** — dark capsule (~78% opacity), white text, centred near the bottom, width fits the text.
+3. **Lower third** — left-aligned near-white box with a 6 px accent bar on the left, slightly smaller text.
+4. **Bold social** — large heavy display font, white with a dark outline, centred, 2–4 word chunks; the word being spoken turns accent colour. Word timing: with captions only, use the scene timing; with a voiceover, estimate from the pace or (on request, costs credits) use a word-timestamped transcript — say which.
+For every style, keep a caption safe zone at the bottom: frame the UI above it so captions never sit on top of UI elements.
 
 **Visual source** — ask this whenever the subject is a web app or any platform reachable in a browser and its code is not in the session:
 - *Claude in Chrome* (recommended if available) — "Can I open <platform> in your Chrome, where you're signed in, and take the screenshots myself?" Prefer a demo/test account or store; if only a live account exists, warn that real data will appear and will be covered before use.
@@ -81,7 +90,7 @@ Show one brief table, defaults filled in, and wait for approval:
 | Logo / credit | None unless the brief says so. Corner: bottom-right, ~6% of frame width, 24 px margin, ~85% opacity. Watermark: ~15% opacity. Never over captions or highlights |
 | Voice | The voice from the brief or a Profile. Never assume a voice ID: list the available voices and say which one you use and with which model |
 | Narration | Language from the brief; calm, matter-of-fact; address per brief |
-| Captions | On, bottom of the frame in a caption band; moved to the top only for a scene whose highlight sits in the lower third. Always also delivered as an `.srt` file |
+| Captions | On, style from question 8 (default: 1 Clean band for 16:9, 4 Bold social for 9:16), in a bottom safe zone; moved to the top only for a scene whose highlight sits in the lower third. Always also delivered as an `.srt` file |
 | Music / SFX | None (music only generated or user-supplied, ~−22 dB under speech) |
 | Format | 16:9, 1280×720, 25 fps (9:16 = 720×1280, 1:1 = 1080×1080 on request) |
 | Length | 60–100 s, full flow, about 6 steps |
@@ -132,7 +141,7 @@ House style:
 - **UI** rebuilt in the app's own look (fonts, colours, card style), or the step's screenshot with zoom/pan.
 - **Highlight** (outline + dimmed backdrop) on the active element, fading in ~0.3 s into the scene; brand accent colour, orange if none.
 - **Files "dropping in"** to upload fields, **cursor** moving to buttons with a click ripple, values changing (e.g. a dropdown from May → June).
-- **Captions** at the bottom, in a solid caption band below the UI (never on top of it); for a scene whose highlight is in the lower third, move the band to the top for that scene only. Max 2 lines.
+- **Captions** in the chosen style (see Caption preview), in the bottom safe zone, never on top of UI elements; for a scene whose highlight is in the lower third, move them to the top for that scene only. Max 2 lines (Bold social: one short chunk at a time).
 - **Explainer mini-diagram** when a concept needs it.
 - **Result screen**: statuses highlighted row by row as the voice mentions them (green / yellow / red).
 - **End card:** privacy line if relevant + closing line + the logo or credit chosen in the brief.

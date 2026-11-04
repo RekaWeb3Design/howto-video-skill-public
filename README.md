@@ -12,7 +12,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 3. Gets the visuals: for web platforms it can open them in your Chrome via Claude in Chrome and take the screenshots itself (navigation only — it never saves, submits or signs in); otherwise it uses your screenshots or rebuilds the UI from code.
 4. Writes a scene-by-scene script and waits for approval — no credits are spent before this.
 5. Generates the voiceover (ElevenLabs) or falls back to captions only.
-6. Uses **fictional data only** (real data is covered), animates highlights, cursor and captions, and renders the video with Playwright + ffmpeg.
+6. Uses **fictional data only** (real data is covered), animates highlights, cursor and captions (four caption styles, shown as a preview image before you pick one), and renders the video with Playwright + ffmpeg.
 7. Checks key frames before delivery and hands over the MP4 with an `.srt` transcript, then optionally uploads it as an unlisted YouTube video, writes an embed prompt, or drafts an email.
 
 ## Requirements

@@ -62,7 +62,6 @@ Ask only what Step 1 did not answer. Max 8 questions, multiple choice where poss
 5. **Voice + language** — which voice (the user's own cloned voice, a stock voice, or captions only); which narration language?
 6. **Format + destination** — 16:9 internal guide (default) / 9:16 social / embedded on a site or in an app; target length? If an email goes out: to whom, in which thread (if unclear, search the mailbox for the relevant thread and propose it)?
 7. **Logo / credit on the video** — none (default) / the brand's logo / the creator's own logo (e.g. a studio logo) / a text credit (e.g. "Made by <name>") / another logo. Placement: small in a corner (which one; default bottom-right) / semi-transparent watermark / only on the title and end cards. Use only a logo file the user supplies or one found in their project files; never download a logo from the web. If no file is at hand, ask for an SVG or transparent PNG. Suggest saving the choice (file + placement) in a Profile so later videos reuse it.
-
 8. **Caption style** — show the caption preview first (below), then ask: *1 Clean band* / *2 Pill* / *3 Lower third* / *4 Bold social*. Default: 1 for 16:9, 4 for 9:16. Suggest saving the choice in a Profile.
 
 If relevant, also: **closing line** (who to contact with questions).

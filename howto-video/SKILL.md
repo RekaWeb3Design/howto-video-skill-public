@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.3.0
+  version: 1.3.1
 ---
 
 <!--
@@ -127,8 +127,8 @@ Show the script, wait for approval; on edits show only the changed rows.
 
 ## Step 6 — Voiceover
 
-- Generate the **whole approved narration in one call**, tone prefix matching the brief (default `[calm, friendly, matter-of-fact]`), with the tool's default number of takes. One call only; never re-call to retry.
-- Download the takes as `voice_A.mp3` and `voice_B.mp3`. Use take A first. Don't send audio for review; mention that take B exists and that switching means re-timing (a few minutes).
+- Generate the **whole approved narration in one call**, tone prefix matching the brief (default `[calm, friendly, matter-of-fact]`). **Generate exactly 1 take** (set the take count explicitly, e.g. `generations_count: 1`, because some tools default to 2) unless the user asks for more, so no credits are spent on takes nobody uses. One call only; never re-call to retry.
+- Download the take as `voice_A.mp3`. Don't send audio for review.
 - Timing: `ffmpeg -i voice_A.mp3 -af silencedetect=noise=-35dB:d=0.35 -f null -` to find paragraph boundaries; map each scene to its sentence. Only if ambiguous, transcribe with timestamps (costs credits; say so).
 
 ## Step 7 — Scene (`scene.html`)
@@ -186,7 +186,7 @@ Grab 6–9 frames at key moments into one contact sheet (`ffmpeg -ss T -frames:v
 
 ## Step 10 — Deliver (gate 3)
 
-Send the MP4 (with sound) so it renders inline, plus the `.srt`. Short list: what each part shows, "all data is fictional", any known small issue (offer to fix), take B exists. Ask for feedback; on revisions change only what was asked, re-render, re-check.
+Send the MP4 (with sound) so it renders inline, plus the `.srt`. Short list: what each part shows, "all data is fictional", any known small issue (offer to fix). Ask for feedback; on revisions change only what was asked, re-render, re-check.
 
 ## Step 11 — Distribution (gate 4, only what the brief asked for)
 

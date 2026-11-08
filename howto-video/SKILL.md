@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.5.0
+  version: 1.5.1
 ---
 
 <!--
@@ -78,7 +78,7 @@ For every style, keep a caption safe zone at the bottom: frame the UI above it s
 - *Claude in Chrome* (recommended if available) — "Can I open <platform> in your Chrome, where you're signed in, and take the screenshots myself?" Prefer a demo/test account or store; if only a live account exists, warn that real data will appear and will be covered before use.
 - *You send screenshots* — one per step, same window size, in order.
 - *Rebuilt UI* — only if the code is available or the UI is simple enough to rebuild from screenshots.
-- *Local desktop software* (a program installed on the computer, not a website) — either the user sends screenshots (default, safest), or **computer use** in the Claude desktop app, but only after the user has read and accepted the notice in Step 4b. Offer it as one option next to "send screenshots", never as the default, and never push for it.
+- *Local desktop software* (a program installed on the computer, not a website) — either the user sends screenshots (default, safest), or **computer use** in the Claude desktop app, but only after the user has read and accepted the notice in Step 4b. Offer it as one option next to "send screenshots", never as the default, and never push for it. The Claude desktop app itself cannot be captured this way (it is not offered for computer-use approval), so screens of the Claude app always come from the user's own screenshots.
 If Claude in Chrome is not installed, say once that installing it lets the skill capture screenshots by itself, then continue with the user's screenshots. Do not use screenshots found on the web: they are often outdated, may show other people's data, and may be copyrighted.
 
 ## Step 3 — Brief (gate 1)

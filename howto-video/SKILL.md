@@ -7,7 +7,7 @@ metadata:
   studio: The WOW Studio
   contact: hello@rekavig.com
   github: RekaWeb3Design
-  version: 1.4.0
+  version: 1.5.0
 ---
 
 <!--
@@ -32,14 +32,14 @@ Short, clear tutorial videos for any brand, client or team. Brand-agnostic by de
 
 - **Context first, then few questions.** Use what the current project/chat already tells you; ask only what is missing. Never ask what you can find out yourself (repo labels, brand files, recipients in an existing email thread).
 - **Gates, in order:** (1) brief, (2) script, (3) finished video, (4) distribution (upload / embed / email, only what the brief asks for). Never skip a gate; one gate per message.
-- **No credits before the script is approved.** Say up front that voiceover/generation uses credits.
+- **No credits before the script is approved.** Say up front that ElevenLabs voiceover/generation uses credits (the free local Piper voice does not).
 - **Never send audio alone for review.** Always a finished video with sound.
 - **Fictional data only.** No real names, amounts, order numbers or IDs. Use obviously fake ones (Jane Sample, Test Company Ltd., round amounts, `DEMO-2026-001` style IDs; in Hungarian e.g. Minta Anna, Példa Kft.).
 - **Tone comes from the brief.** Default is calm and matter-of-fact; no hype or marketing tone unless the brief explicitly asks for it.
 
 ## Step 0 — Capability check (silent)
 
-Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), **Claude in Chrome** (or another browser tool) for capturing screenshots and uploads, an email tool for drafts. *Computer use* (Claude desktop app) is a possible way to capture local desktop software, but it is **never switched on or suggested by default**: see Step 4b, Safety net. Offer only what works; say once what is missing. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s; at least 5 s for a scene with zoom, highlight or cursor, so the motion has time to land). Click/whoosh SFX available on request.
+Check: Bash, `node`, `ffmpeg`, Playwright Chromium (install if missing: `npm i playwright && npx playwright install chromium`), an ElevenLabs connector (speech generation), **Claude in Chrome** (or another browser tool) for capturing screenshots and uploads, an email tool for drafts. *Computer use* (Claude desktop app) is a possible way to capture local desktop software, but it is **never switched on or suggested by default**: see Step 4b, Safety net. Offer only what works; say once what is missing. A **free local voice (Piper TTS, Hungarian only)** needs no account and no credits: `pip install piper-tts` (CPU only, no GPU) plus a one-time voice-model download from huggingface.co (see Step 6); check once that the download works. Without a voice tool the video is captions only (scene duration = max(2.5 s, characters ÷ 15) + 0.5 s; at least 5 s for a scene with zoom, highlight or cursor, so the motion has time to land). Click/whoosh SFX available on request.
 
 ## Step 1 — Context (silent)
 
@@ -48,6 +48,7 @@ Look through the current project/chat and memory for: brand name, colours, fonts
 **Voice setup (first run).** If no voice is set in memory, the chat or a Profile, ask this once, before anything else is generated:
 - *Your own cloned voice* — which ElevenLabs voice name? Look it up with the voice tool and confirm the match; never guess or reuse an ID from an example.
 - *A stock voice* — list a few fitting voices from the voice tool and let the user pick.
+- *Piper free local voice* — no account, no credits. **Hungarian only for now**: `hu_HU-anna-medium` (female) or `hu_HU-imre-medium` (male). Offer it when the narration is Hungarian and the user has no ElevenLabs or does not want to use it.
 - *Captions only* — no voiceover, no credits.
 Then suggest saving the choice in the Profiles section of their own copy (voice name, language, address form), so later runs don't ask again.
 
@@ -59,7 +60,7 @@ Ask only what Step 1 did not answer. Max 8 questions, multiple choice where poss
 2. **Topic + scope** — which tool/feature, and exactly which task from start to finish? Full flow (default) or one short task (~40 s)?
 3. **Audience + goal** — internal team / one named person / client / public; what should they be able to do afterwards?
 4. **Tone + address** — calm-matter-of-fact (default) / friendly / formal; informal or formal address (e.g. tegező / magázó in Hungarian); one person or a group?
-5. **Voice + language** — which voice (the user's own cloned voice, a stock voice, or captions only); which narration language?
+5. **Voice + language** — which voice (the user's own cloned voice, a stock voice, the free Piper voice (Hungarian only), or captions only); which narration language?
 6. **Format + destination** — 16:9 internal guide (default) / 9:16 social / embedded on a site or in an app; target length? If an email goes out: to whom, in which thread (if unclear, search the mailbox for the relevant thread and propose it)?
 7. **Logo / credit on the video** — none (default) / the brand's logo / the creator's own logo (e.g. a studio logo) / a text credit (e.g. "Made by <name>") / another logo. Placement: small in a corner (which one; default bottom-right) / semi-transparent watermark / only on the title and end cards. Use only a logo file the user supplies or one found in their project files; never download a logo from the web. If no file is at hand, ask for an SVG or transparent PNG. Suggest saving the choice (file + placement) in a Profile so later videos reuse it.
 8. **Caption style** — show the caption preview first (below), then ask: *1 Clean band* / *2 Pill* / *3 Lower third* / *4 Bold social*. Default: 1 for 16:9, 4 for 9:16. Suggest saving the choice in a Profile.
@@ -88,7 +89,7 @@ Show one brief table, defaults filled in, and wait for approval:
 |---|---|
 | Brand look | As confirmed in Step 2 (detected branding, a different one, or neutral: white cards, system sans, one accent colour) |
 | Logo / credit | None unless the brief says so. Corner: bottom-right, ~6% of frame width, 24 px margin, ~85% opacity. Watermark: ~15% opacity. Never over captions or highlights |
-| Voice | The voice from the brief or a Profile. Never assume a voice ID: list the available voices and say which one you use and with which model |
+| Voice | The voice from the brief or a Profile. Never assume a voice ID: list the available voices and say which one you use and with which model (ElevenLabs), or the chosen Piper voice (Anna / Imre, Hungarian only) |
 | Narration | Language from the brief; calm, matter-of-fact; address per brief |
 | Captions | On, style from question 8 (default: 1 Clean band for 16:9, 4 Bold social for 9:16), in a bottom safe zone; moved to the top only for a scene whose highlight sits in the lower third. Always also delivered as an `.srt` file |
 | Music / SFX | None (music only generated or user-supplied, ~−22 dB under speech) |
@@ -155,6 +156,7 @@ Table: `# | on screen (shown / highlighted) | narration`.
 - Exact UI labels in quotes, in the UI's language.
 - Pace ≈ 1.8 words/s in Hungarian, ≈ 2.4 words/s in English (estimate other languages similarly); check the total against the target length.
 - Short spoken sentences; one action per scene; tone and address exactly as briefed.
+- **Piper voice:** never open with a standalone one-word exclamation (just "Szia!"): the model over-dramatises it. Make the greeting part of a fuller opening sentence ("Szia, most megmutatom, hogyan …").
 
 Show the script, wait for approval; on edits show only the changed rows.
 
@@ -163,6 +165,23 @@ Show the script, wait for approval; on edits show only the changed rows.
 - Generate the **whole approved narration in one call**, tone prefix matching the brief (default `[calm, friendly, matter-of-fact]`). **Generate exactly 1 take** (set the take count explicitly, e.g. `generations_count: 1`, because some tools default to 2) unless the user asks for more, so no credits are spent on takes nobody uses. One call only; never re-call to retry.
 - Download the take as `voice_A.mp3`. Don't send audio for review.
 - Timing: `ffmpeg -i voice_A.mp3 -af silencedetect=noise=-35dB:d=0.35 -f null -` to find paragraph boundaries; map each scene to its sentence. Only if ambiguous, transcribe with timestamps (costs credits; say so).
+
+**Piper voice (free, local, Hungarian only)** — used instead of the ElevenLabs call when the brief says so. No credits, so the one-take rule is simply: generate once, no retries unless the user asks.
+```bash
+pip install piper-tts                      # once; used only as a command-line tool, like ffmpeg
+mkdir -p piper_voices && cd piper_voices   # cache in the working directory (~61 MB per voice)
+V=anna                                     # or imre
+B=https://huggingface.co/rhasspy/piper-voices/resolve/main/hu/hu_HU/$V/medium
+curl -sSL -O $B/hu_HU-$V-medium.onnx && curl -sSL -O $B/hu_HU-$V-medium.onnx.json   # both files are needed
+cd ..
+python3 -m piper -m piper_voices/hu_HU-$V-medium.onnx -f voice_A.wav < narration.txt
+ffmpeg -hide_banner -loglevel error -y -i voice_A.wav -c:a libmp3lame -q:a 2 voice_A.mp3
+```
+- `narration.txt` is the approved narration (Step 5 opening-line rule applies). On a CPU this runs about 3× faster than real time.
+- Download or install fails (restricted network)? Say so plainly and offer ElevenLabs or captions only. Do not retry in a loop.
+- Only these two Hungarian voices are set up. For other languages use ElevenLabs or captions only.
+- Licence: the Piper tool is GPL-3.0 and is only run as a command-line tool (like ffmpeg); the audio and the video are not GPL. Both voices are trained on CC0 data (see their model cards).
+- The rule about audio stays: never send the voice file alone for review, only the finished video with sound.
 
 ## Step 7 — Scene (`scene.html`)
 

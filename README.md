@@ -7,7 +7,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 
 ## What it does
 
-1. On first run, asks which voice to use (your own cloned ElevenLabs voice, a stock voice, or captions only) — it never uses someone else's voice ID.
+1. On first run, asks which voice to use (your own cloned ElevenLabs voice, a stock voice, a free local Piper voice (Hungarian only), or captions only) — it never uses someone else's voice ID.
 2. Asks a few questions and shows a brief for approval: if it finds branding in your project (colours, fonts, logo), it asks whether to use it or something else; it also asks whether to show a logo or a name credit, and where (corner, watermark, or title/end card only).
 3. Gets the visuals: for web platforms it can open them in your Chrome via Claude in Chrome and take the screenshots itself (navigation only — it never saves, submits or signs in); otherwise it uses your screenshots or rebuilds the UI from code. For local desktop software it can optionally use computer use in the Claude desktop app, behind a safety net (see below). Screenshots are captured in high resolution so they stay sharp even when the video zooms in.
 4. Writes a scene-by-scene script and waits for approval — no credits are spent before this.
@@ -19,7 +19,7 @@ Free for non-commercial use under [CC BY-NC-SA 4.0](LICENSE).
 
 - Claude with skills and code execution (Claude app or Claude Code)
 - `node`, `ffmpeg`, Playwright Chromium (the skill installs Playwright if missing)
-- Optional: ElevenLabs connector (voiceover — on first run the skill asks which voice to use), Claude in Chrome (captures screenshots of web platforms by itself and uploads to YouTube), an email connector (drafts)
+- Optional: Piper TTS (free local voice, Hungarian only; the skill installs it with `pip install piper-tts` and downloads the voice model once), ElevenLabs connector (voiceover — on first run the skill asks which voice to use), Claude in Chrome (captures screenshots of web platforms by itself and uploads to YouTube), an email connector (drafts)
 
 ## Safety: computer use is optional and at your own risk
 
@@ -55,4 +55,4 @@ Commercial licensing: hello@rekavig.com
 
 ### Magyarul röviden
 
-Claude skill, amely néhány kérdés után narrált, lépésről lépésre haladó útmutató videót készít bármilyen márkához, webapphoz vagy eszközhöz. Első futáskor megkérdezi, milyen hangot használjon, webes platformoknál pedig a Claude in Chrome segítségével maga is tud képernyőképeket készíteni. A gépen futó szoftverekhez opcionálisan használhat computer use-t is, de csak biztonsági védőhálóval és saját felelősségre: alapból csak néz és navigál, semmit nem töröl és nem állít át, ehhez külön kérés, visszaolvasás és kétszeri jóváhagyás kell; aki nem akarja, maga készít és küld képernyőképeket. Szabadon használható és továbbadható nem kereskedelmi célra, a szerző (Víg Réka / The WOW Studio) feltüntetésével. Ügyfeleknek ingyen készíthetsz vele videót, de a vele készült videókért pénzt kérni, illetve a skillt eladni vagy fizetős termékbe, kurzusba csomagolni engedély nélkül nem szabad. Kereskedelmi licenc: hello@rekavig.com
+Claude skill, amely néhány kérdés után narrált, lépésről lépésre haladó útmutató videót készít bármilyen márkához, webapphoz vagy eszközhöz. Első futáskor megkérdezi, milyen hangot használjon (saját klónozott ElevenLabs hang, ElevenLabs stock hang, ingyenes helyi Piper hang magyarul, vagy csak felirat), webes platformoknál pedig a Claude in Chrome segítségével maga is tud képernyőképeket készíteni. A gépen futó szoftverekhez opcionálisan használhat computer use-t is, de csak biztonsági védőhálóval és saját felelősségre: alapból csak néz és navigál, semmit nem töröl és nem állít át, ehhez külön kérés, visszaolvasás és kétszeri jóváhagyás kell; aki nem akarja, maga készít és küld képernyőképeket. Szabadon használható és továbbadható nem kereskedelmi célra, a szerző (Víg Réka / The WOW Studio) feltüntetésével. Ügyfeleknek ingyen készíthetsz vele videót, de a vele készült videókért pénzt kérni, illetve a skillt eladni vagy fizetős termékbe, kurzusba csomagolni engedély nélkül nem szabad. Kereskedelmi licenc: hello@rekavig.com
